@@ -1,2 +1,2 @@
 #!/bin/bash
-cat $((128+$TRUEKNOWLEDGE))
+cat $((128 + $TRUEKNOWLEDGE))
