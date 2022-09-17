@@ -13,6 +13,7 @@ The specific list of projects contained follows:
 * [0x07. Networking basics #0](./0x07-networking_basics)
 * [0x08. Networking basics #1](./0x08-networking_basics_2)
 * [0x0A-configuration_management](./0x0A-configuration_management)
+* [0x0B-ssh](./0x0B-ssh)
 
 
 ## Author :black_nib:
