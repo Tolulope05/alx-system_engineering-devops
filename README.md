@@ -18,7 +18,7 @@ The specific list of projects contained follows:
 
 ## Author :black_nib:
 
-* __tolulope Fakunle__ <[lexxyla](https://github.com/Tolulope05)>
+* __Tolulope Fakunle__ <[Tolulope05](https://github.com/Tolulope05)>
 
 ## Acknowledgements :pray:
 
