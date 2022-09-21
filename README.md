@@ -14,6 +14,7 @@ The specific list of projects contained follows:
 * [0x08. Networking basics #1](./0x08-networking_basics_2)
 * [0x0A-configuration_management](./0x0A-configuration_management)
 * [0x0B-ssh](./0x0B-ssh)
+* [0x0C-web_server](./0x0C-web_server)
 
 
 ## Author :black_nib:
