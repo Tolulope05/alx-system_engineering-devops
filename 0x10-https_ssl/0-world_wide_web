@@ -1,17 +1,22 @@
 #!/usr/bin/env bash
-# displays information about subdomains
+# After configuring domain zone, use this script to output where each subdomain points to
+runDig () {
+    subarg=$1
+    urlarg=$2
 
-sub_info () {
-    
-    if [ "$#" -eq 2 ]; then
-        dig $2.$1 | grep -A1 'ANSWER SECTION:' | tr '\n' ' ' | awk '{split($0,a," "); split(a[4],b,"."); printf "The subdomain %s is a %s record and points to %s\n",b[1], a[7], a[8]}'
-    elif [ "$#" -eq 1 ]; then
-        dig www.$1 | grep -A1 'ANSWER SECTION:' | tr '\n' ' ' | awk '{split($0,a," "); printf "The subdomain www is a %s record and points to %s\n", a[7], a[8]}'
-        dig lb-01.$1 | grep -A1 'ANSWER SECTION:' | tr '\n' ' ' | awk '{split($0,a," "); printf "The subdomain lb-01 is a %s record and points to %s\n", a[7], a[8]}'
-        dig web-01.$1 | grep -A1 'ANSWER SECTION:' | tr '\n' ' ' | awk '{split($0,a," "); printf "The subdomain web-01 is a %s record and points to %s\n", a[7], a[8]}'
-        dig web-02.$1 | grep -A1 'ANSWER SECTION:' | tr '\n' ' ' | awk '{split($0,a," "); printf "The subdomain web-02 is a %s record and points to %s\n", a[7], a[8]}'
-    fi
-
+    dig "$subarg.$urlarg" | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v s="$subarg" 'BEGIN { FS = " " } ; { print "The subdomain " s " is a " $4 " record and points to " $5 }'
 }
 
-sub_info $1 $2
+allSubs=( "www" "lb-01" "web-01" "web-02" )
+
+if [ $# -eq 1 ]; then
+    url="$1"
+    for s in "${allSubs[@]}"
+    do
+	runDig "$s" "$url"
+    done
+elif [ $# -eq 2 ]; then
+    url="$1"
+    sub="$2"
+    runDig "$sub" "$url"
+fi
