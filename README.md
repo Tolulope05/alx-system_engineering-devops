@@ -17,6 +17,7 @@ The specific list of projects contained follows:
 * [0x0C-web_server](./0x0C-web_server)
 * [0x0D-web_stack_debugging_0](./0x0D-web_stack_debugging_0)
 * [0x0F-load_balancer](./0x0F-load_balancer)
+* [0x10-https_ssl](./0x10-https_ssl)
 
 
 ## Author :black_nib:
